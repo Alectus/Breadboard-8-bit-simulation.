@@ -1,4 +1,4 @@
-Startconditions : Clock on manual, Clk Halt Off (L), all other buttons On (H).
+Startconditions : Clock on manual, all other buttons On (H).
 
 1) Manual write 57 into Ram address 11
 - Set switch to Prog.
