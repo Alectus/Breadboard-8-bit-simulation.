@@ -1,4 +1,4 @@
-Startposition : switch to program - clock switch open
+Startposition : switch is in program mode in ram-section - clock switch is open
 Enter data into the Ram:
 
 LDA15 address  0000 	Parameter	0001 1111  = 31
