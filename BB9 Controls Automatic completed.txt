@@ -5,13 +5,13 @@ LDA15 address  0000 	Parameter	0001 1111  = 31
 ADD14 address  0001 	Parameter	0010 1110   = 46
 SUB13 address  0010 	Parameter	0011 1101   = 61
 OUT   address  0011 	Parameter	1110 0000   = 224
-HLT   address  0100     Parameter	1111 0000   = 240
+HLT   address  0100   Parameter	1111 0000   = 240
 
 Data  address  1101	Value		0001 0100   = 20
 Data  address  1110	Value		0110 0001   = 97
 Data  address  1111	Value		0011 0101   = 53
 
-Don't bother to close the dipswitches or off the buttons, the 157 A or B selectors will disconnect them from the rest.
+Don't bother to close the dipswitches or to off the buttons, the 157 A or B selectors will disconnect them from the rest.
 Remember, it is a Ram, when you stop Simulide this data will be lost. Pause keeps the data intact.
 Press Master Reset a few times. Set switch back to Run-mode. Close the clock-generator switch.
 First register A will be loaded with 53
@@ -19,15 +19,15 @@ Later register B will be loaded with 97
 Alu shows sum 150
 Register A loads with 20 - logic control tells to subtract this and end result is 130.
 Clock stops - end of program.
-Open clock switch, press master reset a few times and close clock switch, the program will strart again.
+Open clock switch, press master reset a few times and close clock switch, the program will restrart.
 
 
 Watch video 36 for more info about data input into Ram and video 40 from minute 26:15 in this playlist:
 
 https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTBypGqImE405J2565dvjafglHU
 
-When you open the simu-file the control logic eeproms should contain program data already.
-If you want to change it you can use the Nano Eeprom Programmer Completed simu-file. 
+When you open the simu-file the control logic eeproms should already contain program data.
+If you want to change it you can use the Nano Eeprom Programmer completed simu-file in this Github.
 More info at:
 https://www.simulide.com/p/blog-page_4.html
 The control eeproms are uploaded with this program:
