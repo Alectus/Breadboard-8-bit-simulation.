@@ -1,0 +1,117 @@
+Startposition : switch to program - clock switch open
+Enter data into the Ram according to his program:
+
+0 - address 0000	Out	= output display
+1 - address 0001	Add15   = add contents address 15 in ram to B register
+2 - address 0010	JC4  	= Jump to line 4 if carry flag is set
+3 - address 0011	JMP0    = else jump to line 0
+4 - address 0100	Sub15	= subtract contents in ram address 15
+5 - address 0101	Out	= output display 
+6 - address 0110	JZ0	= Jump to line 0 if zero flag is set
+7 - address 0111	JMP4	= else jump to line 4
+
+xx- address 1111 	Data	= whatever you like, I took 12 = 0110
+
+The sheet Ben uses in video 44 minute 31:25 :
+https://www.youtube.com/watch?v=Zg1NdPKoosU&list=PLowKtXNTBypGqImE405J2565dvjafglHU&index=44
+
+COMMAND		OP-CODE
+- Fetch 	xxxx
+- NOP		0000
+- LDA		0001
+- ADD		0010
+- SUB		0011
+- STA		0100
+- LDI 		0101
+- JMP		0110
+- JC		0111
+- JZ		1000
+- OUT		1110
+
+
+Enter into Ram this code he uses in video 44 from about minute 30
+
+https://www.youtube.com/watch?v=Zg1NdPKoosU&list=PLowKtXNTBypGqImE405J2565dvjafglHU&index=44
+
+COMMAND		4-BIT ADDRESS		8-BIT DATA	VALUE IN DECIMAL	HEX
+====================================================================================
+OUT		0000			1110 0000		224		E0
+ADD15		0001			0010 1111		047		2F
+JC4		0010			0111 0100		116		74
+JMP0		0011			0110 0000		096		60
+SUB15		0100			0011 1111		063		3F
+OUT		0101			1110 0000		224		E0
+JZ0		0110			1000 0000		128		80
+JMP4		0111			0110 0100		100		64
+
+DATA15		1111			0000 1100     		012		C
+
+		
+Program will add 12 with 12 until it passes 256 (carry flag is set).
+Then it will subtract with 12 to zero.
+And increment again up to 256. And back and fort and etcetera.
+
+At minute 32:45 he shows a multiplication example but fortunatly for this data he made a note.
+It is in the video and included in this Github with title BB12.
+For X and Y you better start testing with small numbers, it takes a while to run through the whole program.
+He set X=3 and Y=5.
+
+
+
+
+
+
+
+===============================================================
+
+This is from video 40 :
+
+
+LDA15 address  0000 	Parameter	0001 1111  = 31
+ADD14 address  0001 	Parameter	0010 1110   = 46
+SUB13 address  0010 	Parameter	0011 1101   = 61
+OUT   address  0011 	Parameter	1110 0000   = 224
+HLT   address  0100     Parameter	1111 0000   = 240
+
+Data  address  1101	Value		0001 0100   = 20
+Data  address  1110	Value		0110 0001   = 97
+Data  address  1111	Value		0011 0101   = 53
+
+Don't bother to close the dipswitches or off the buttons, the 157 A or B selectors will disconnect them from the rest.
+Remember, it is a Ram, when you stop Simulide this data will be lost. Pause keeps the data intact.
+Press Master Reset a few times. Set switch back to Run-mode. Close the clock-generator switch.
+First register A will be loaded with 53
+Later register B will be loaded with 97
+Alu shows sum 150
+Register A loads with 20 - logic control tells to subtract this and end result is 130.
+Clock stops - end of program.
+Open clock switch, press master reset a few times and close clock switch, the program will start again.
+
+
+Watch video 36 for more info about data input into Ram and video 40 from minute 26:15 in this playlist:
+
+https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTBypGqImE405J2565dvjafglHU
+
+When you open the simu-file the control logic eeproms should contain program data already.
+If you want to change it you can use the 'Nano Eeprom Programmer completed' simu-file in this Github. 
+More info at:
+https://www.simulide.com/p/blog-page_4.html
+The control eeproms are uploaded with this program:
+https://github.com/beneater/eeprom-programmer/tree/master/microcode-eeprom-with-flags
+For schematics you can go to this website:
+https://eater.net/8bit
+I hope I didn't make any typo's. If it's not working watch this part of his tutorials:
+https://eater.net/8bit/control
+I tested it and it all had the same outcome as in the video's. 
+And with that this project is finished :)
+
+
+
+
+
+
+
+
+
+
+
